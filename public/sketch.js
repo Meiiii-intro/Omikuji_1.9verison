@@ -9,6 +9,7 @@ let myNumber = 0;
 let fortuneResult = "";
 let onlineUserCount = 0;
 let currentBgColor = [245, 245, 220];
+let isProcessing = false;
 
 
 let threshold = 25;
@@ -90,7 +91,6 @@ function drawNumberGrid() {
   let cellW = gridW / cols;
   let startX = (width - gridW) / 2 + cellW / 2;
   let startY = 120;
-  let isProcessing = false;
 
   for (let i = 0; i < 30; i++) {
     let x = startX + (i % cols) * cellW;
