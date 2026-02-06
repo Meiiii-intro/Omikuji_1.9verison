@@ -25,8 +25,11 @@ This project is built as a real-time networked web experience using a combinatio
 - WebSockets: Used to enable real-time communication between all connected users. When one user successfully draws a fortune, the server broadcasts this event to everyone online, causing all screens to change colour at the same time. This creates a shared moment across different devices and locations.
 
 
-## Install
+## How to play
 Click this link: https://omikuji-how-about-today.onrender.com
+
+- If you are using a mobile phone, you need to physically shake the device to draw a number.
+- If you are using a laptop, no shaking is required - simply click the screen again to receive a number.
 
 
 ## Media
