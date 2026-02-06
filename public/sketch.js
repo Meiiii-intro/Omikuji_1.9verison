@@ -90,6 +90,7 @@ function drawNumberGrid() {
   let cellW = gridW / cols;
   let startX = (width - gridW) / 2 + cellW / 2;
   let startY = 120;
+  let isProcessing = false;
 
   for (let i = 0; i < 30; i++) {
     let x = startX + (i % cols) * cellW;
@@ -120,7 +121,7 @@ function drawFortuneCard() {
   push();
   translate(width / 2, height / 2);
 
-  // 1. 绘制签条主体 (增加阴影感)
+
   drawingContext.shadowBlur = 15;
   drawingContext.shadowColor = 'rgba(0,0,0,0.1)';
   fill(255);
@@ -194,11 +195,10 @@ function mousePressed() {
 }
 
 function checkShake() {
+  if (isProcessing) return; // 如果正在处理中，直接跳过，防止跳频
 
   if (prevX === undefined) {
-    prevX = accelerationX;
-    prevY = accelerationY;
-    prevZ = accelerationZ;
+    prevX = accelerationX; prevY = accelerationY; prevZ = accelerationZ;
     return;
   }
 
@@ -208,16 +208,17 @@ function checkShake() {
   );
   
   if (acceleration > threshold) {
+    isProcessing = true;
     myNumber = floor(random(1, 31));
-    gameState = "PROCESSING"; 
+    
+
     setTimeout(() => {
       gameState = "GRID";
-    }, 1000);
+      isProcessing = false;
+    }, 800); 
   }
   
-  prevX = accelerationX;
-  prevY = accelerationY;
-  prevZ = accelerationZ;
+  prevX = accelerationX; prevY = accelerationY; prevZ = accelerationZ;
 }
 
 function windowResized() {
