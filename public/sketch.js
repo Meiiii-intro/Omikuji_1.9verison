@@ -181,21 +181,10 @@ function drawFortuneCard() {
 
 
 function mousePressed() {
-
   if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
-    DeviceOrientationEvent.requestPermission()
-      .then(response => {
-        if (response === 'granted') {
-          console.log("Sensor access granted!");
-    
-          executeStateChange();
-        } else {
-          alert("Sensor access denied. Shaking won't work.");
-        }
-      })
-      .catch(err => {
-        console.error("DeviceOrientationEvent error: ", err);
-      });
+    DeviceOrientationEvent.requestPermission().then(response => {
+      if (response === 'granted') executeStateChange();
+    });
   } else {
     executeStateChange();
   }
@@ -204,13 +193,9 @@ function mousePressed() {
 function executeStateChange() {
   if (gameState === "START") {
     gameState = "SHAKING";
-  } 
-  else if (gameState === "SHAKING") {
+  } else if (gameState === "SHAKING") {
     myNumber = floor(random(1, 31));
     gameState = "GRID";
-  } 
-  else if (gameState === "REVEAL") {
-    gameState = "START";
   }
 }
 
