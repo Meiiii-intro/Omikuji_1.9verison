@@ -183,7 +183,7 @@ function mousePressed() {
   if (gameState === "START") {
     gameState = "SHAKING";
   } 
-  
+
   else if (gameState === "SHAKING") {
     myNumber = floor(random(1, 31));
     gameState = "GRID";
@@ -193,9 +193,8 @@ function mousePressed() {
     gameState = "START";
   }
 }
-
 function checkShake() {
-  if (isProcessing) return; // 如果正在处理中，直接跳过，防止跳频
+  if (isProcessing) return;
 
   if (prevX === undefined) {
     prevX = accelerationX; prevY = accelerationY; prevZ = accelerationZ;
