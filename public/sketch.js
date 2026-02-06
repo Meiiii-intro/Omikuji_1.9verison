@@ -112,6 +112,10 @@ function drawNumberGrid() {
       if (i + 1 === myNumber) {
         socket.emit('drawFortuneRequest');
         gameState = "REVEAL";
+
+        setTimeout(() => {
+      gameState = "START"; 
+    }, 10000);
       }
     }
   }
