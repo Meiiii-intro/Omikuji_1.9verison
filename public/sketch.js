@@ -109,12 +109,14 @@ function drawNumberGrid() {
 
 
     if (mouseIsPressed && dist(mouseX, mouseY, x, y) < cellW/2) {
-      if (i + 1 === myNumber) {
-        socket.emit('drawFortuneRequest');
-        gameState = "REVEAL";
+  if (i + 1 === myNumber && !isProcessing) { 
+    isProcessing = true;
+    socket.emit('drawFortuneRequest');
+    gameState = "REVEAL";
 
         setTimeout(() => {
       gameState = "START"; 
+      isProcessing = false;
     }, 10000);
       }
     }
