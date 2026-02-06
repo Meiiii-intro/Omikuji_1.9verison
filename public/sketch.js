@@ -233,7 +233,7 @@ function checkShake() {
     setTimeout(() => {
       gameState = "GRID";
       isProcessing = false;
-    }, 800); 
+    }, 2000); 
   }
   
 
