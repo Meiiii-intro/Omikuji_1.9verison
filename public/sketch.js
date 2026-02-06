@@ -177,29 +177,48 @@ function drawFortuneCard() {
 function mousePressed() {
 
   if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
-    DeviceOrientationEvent.requestPermission();
+    DeviceOrientationEvent.requestPermission()
+      .then(response => {
+        if (response === 'granted') {
+          console.log("Sensor access granted!");
+    
+          executeStateChange();
+        } else {
+          alert("Sensor access denied. Shaking won't work.");
+        }
+      })
+      .catch(err => {
+        console.error("DeviceOrientationEvent error: ", err);
+      });
+  } else {
+    executeStateChange();
   }
+}
 
+function executeStateChange() {
   if (gameState === "START") {
     gameState = "SHAKING";
   } 
-
   else if (gameState === "SHAKING") {
     myNumber = floor(random(1, 31));
     gameState = "GRID";
   } 
-
   else if (gameState === "REVEAL") {
     gameState = "START";
   }
 }
+
 function checkShake() {
   if (isProcessing) return;
 
+
   if (prevX === undefined) {
-    prevX = accelerationX; prevY = accelerationY; prevZ = accelerationZ;
+    prevX = accelerationX; 
+    prevY = accelerationY; 
+    prevZ = accelerationZ;
     return;
   }
+
 
   let acceleration = p5.Vector.dist(
     createVector(accelerationX, accelerationY, accelerationZ), 
@@ -210,14 +229,17 @@ function checkShake() {
     isProcessing = true;
     myNumber = floor(random(1, 31));
     
-
+  
     setTimeout(() => {
       gameState = "GRID";
       isProcessing = false;
     }, 800); 
   }
   
-  prevX = accelerationX; prevY = accelerationY; prevZ = accelerationZ;
+
+  prevX = accelerationX; 
+  prevY = accelerationY; 
+  prevZ = accelerationZ;
 }
 
 function windowResized() {
