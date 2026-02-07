@@ -34,9 +34,7 @@ Click this link: https://omikuji-how-about-today.onrender.com
 
 ## Media
 
-<video src="Images/Omikuji2.0_How%20about%20Today_.mp4" controls width="100%" style="max-width: 600px;">
-  您的浏览器不支持播放该视频。
-</video>
+Please click this link to watch video: https://drive.google.com/file/d/1-y3524exRKsFV7jNuqJbFvFgqB4vA17r/view?usp=drive_link
 
 
 ## Troubleshooting
