@@ -34,7 +34,9 @@ Click this link: https://omikuji-how-about-today.onrender.com
 
 ## Media
 
-![Project Demo](./images/Omikuji2.0_How%20about%20Today_.mp4)
+<video src="./Images/Omikuji2.0_How about Today_.mp4" controls width="100%" style="max-width: 600px;">
+  Your browser does not support the video tag.
+</video>
 
 
 ## Troubleshooting
