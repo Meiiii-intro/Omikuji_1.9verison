@@ -34,7 +34,7 @@ Click this link: https://omikuji-how-about-today.onrender.com
 
 ## Media
 
-/Users/hitsu/Library/Mobile Documents/com~apple~CloudDocs/Goldsmiths File/WCC1-DCT/p5 - sketch - git /P5sketch/Omikuji_Second_sketchbook_WCC/Images/Omikuji2.0_How about Today_.mp4
+![Project Demo](./images/Omikuji2.0_How%20about%20Today_.mp4)
 
 
 ## Troubleshooting
